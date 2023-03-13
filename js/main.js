@@ -140,7 +140,7 @@ const oggetti = [
 */
 stampoLemieCard();
 
-function stampoLemieCard() {
+function stampoLemieCard(tipo) {
 
     oggetti.forEach(element => {
 
@@ -149,7 +149,10 @@ function stampoLemieCard() {
                             <div>${element.name}</div>
                             </div>`;
 
-        provaDom.innerHTML += imageCard;
+
+        if (element.type == tipo)
+
+            provaDom.innerHTML += imageCard;
     });
 }
 
@@ -158,10 +161,8 @@ tipoSeleione.addEventListener("change",
 
         let sceltaTipo = tipoSeleione.value;
         provaDom.innerHTML = "";
+        stampoLemieCard(sceltaTipo)
 
-        if (sceltaTipo == "all") {
-            stampoLemieCard()
-        }
 
     }
 
