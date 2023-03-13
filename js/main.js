@@ -138,45 +138,39 @@ const oggetti = [
     }
 ];
 */
-let card = "";
-oggetti.forEach(element => {
-    // console.log(element)
+function stampoLemieCard() {
 
-    let imageCard = `<div class="card">
-                        <i class="fa-solid ${element.prefix}${element.name}"style="color:${element.color}"></i>
-                        <div>${element.name}</div>
-                        </div>`;
+    let card = "";
 
-    card += imageCard;
+    oggetti.forEach(element => {
 
-    tipoSeleione.addEventListener("change",
-        function () {
+        let imageCard = `<div class="card">
+                            <i class="fa-solid ${element.prefix}${element.name}"style="color:${element.color}"></i>
+                            <div>${element.name}</div>
+                            </div>`;
 
-            card = "";
+        card += imageCard;
 
-            let sceltaTipo = tipoSeleione.value;
+    });
 
-            if (sceltaTipo == "animal") {
+    return card;
+}
 
-            } else if (sceltaTipo == "vegetable") {
+tipoSeleione.addEventListener("change",
+    function () {
 
-            } else if (sceltaTipo == "user") {
+        let sceltaTipo = tipoSeleione.value;
 
-            }
+        if (sceltaTipo == "all") {
+            stampoLemieCard()
+            provaDom.innerHTML += card;
 
-            // if (sceltaTipo = "all") {
-            //     cardDom.classList.add("d-none");
-            // } else if (sceltaTipo = "animal") {
-            //     cardDom.classList.add("d-block");
-            // } else if (sceltaTipo = "vegetable") {
-            //     cardDom.classList.add("d-block");
-            // } else if (sceltaTipo = "user") {
-            //     cardDom.classList.add("d-block");
-            // }
         }
-    )
-});
 
-provaDom.innerHTML += card;
+    }
+
+)
+
+
 
 
