@@ -49,8 +49,3 @@ function generaNumeriCasualiUnici(quantitàDesiderata, max, min) {
     }
     return numeriUnici;
 }
-
-const numeriUniciGenerati = generaNumeriCasualiUnici(2, 3, 0);
-console.log(numeriUniciGenerati); // [3, 5, 2, 9, 1]
-
-
