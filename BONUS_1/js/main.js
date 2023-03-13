@@ -20,10 +20,9 @@ function stampoLemieCard(tipo) {
     oggetti.forEach(element => {
 
         let imageCard = `<div class="card">
-                            <i class="fa-solid ${element.prefix}${element.name}"style="color:rgb(${generaNumeriCasualiUnici(3, 255)})"></i>
+                            <i class="fa-solid ${element.prefix}${element.name}"style="color:rgb(${generaNumeriCasualiUnici(3, 255, 0)})"></i>
                             <div>${element.name}</div>
                             </div>`;
-
         if (element.type == tipo || tipo == "all")
             provaDom.innerHTML += imageCard;
     });
@@ -38,11 +37,11 @@ tipoSeleione.addEventListener("change",
     }
 )
 
-function generaNumeriCasualiUnici(quantitàDesiderata, valoreMassimo) {
+function generaNumeriCasualiUnici(quantitàDesiderata, max, min) {
     let numeriUnici = [];
 
     while (numeriUnici.length < quantitàDesiderata) {
-        const nuovoNumero = Math.floor(Math.random() * valoreMassimo) + 1;
+        const nuovoNumero = Math.floor(Math.random() * (max - min + 1)) + min;
 
         if (!numeriUnici.includes(nuovoNumero)) {
             numeriUnici.push(nuovoNumero);
@@ -51,5 +50,7 @@ function generaNumeriCasualiUnici(quantitàDesiderata, valoreMassimo) {
     return numeriUnici;
 }
 
+const numeriUniciGenerati = generaNumeriCasualiUnici(2, 3, 0);
+console.log(numeriUniciGenerati); // [3, 5, 2, 9, 1]
 
 
