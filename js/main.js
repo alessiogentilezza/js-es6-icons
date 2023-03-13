@@ -10,6 +10,7 @@ Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi d
 
 BONUS
 1- modificare la struttura dati fornita e valorizzare la proprietà “color” in modo dinamico: generare in modo casuale un codice colore, sapendo che la notazione esadecimale è formata dal simbolo “#” seguito da 6 caratteri alfanumerici compresi tra 0 e 9 e A e F.
+
 2- popolare le options della select della milestone 3 dinamicamente.
 Consigli del giorno
 Come sempre, iniziamo prima di tutto dall’analisi e comprensione della consegna. Scomponiamo il problema in micro-passaggi logici che solamente in un secondo momento trasformeremo in codice.
@@ -20,7 +21,6 @@ Inizialmente può essere sufficiente stampare dei semplici div, senza alcuno sti
 
 const provaDom = document.getElementById("cards-container");
 const tipoSeleione = document.getElementById('casellaSelezione');
-
 
 /*
 const oggetti = [
@@ -142,7 +142,7 @@ let card = "";
 oggetti.forEach(element => {
     // console.log(element)
 
-    let imageCard = `<div class="card d-none">
+    let imageCard = `<div class="card">
                         <i class="fa-solid ${element.prefix}${element.name}"style="color:${element.color}"></i>
                         <div>${element.name}</div>
                         </div>`;
@@ -150,27 +150,32 @@ oggetti.forEach(element => {
     card += imageCard;
 
     tipoSeleione.addEventListener("change",
-
         function () {
-            let cardDom = document.getElementsByClassName("card")
+
+            card = "";
+
             let sceltaTipo = tipoSeleione.value;
 
-            if (sceltaTipo = "all") {
-                cardDom.classList.add("d-block");
-            } else if (sceltaTipo = "animal") {
-                cardDom.classList.add("d-block");
-            } else if (sceltaTipo = "vegetable") {
-                cardDom.classList.add("d-block");
-            } else if (sceltaTipo = "user") {
-                cardDom.classList.add("d-block");
+            if (sceltaTipo == "animal") {
+
+            } else if (sceltaTipo == "vegetable") {
+
+            } else if (sceltaTipo == "user") {
+
             }
 
-            // console.log(element)
-
+            // if (sceltaTipo = "all") {
+            //     cardDom.classList.add("d-none");
+            // } else if (sceltaTipo = "animal") {
+            //     cardDom.classList.add("d-block");
+            // } else if (sceltaTipo = "vegetable") {
+            //     cardDom.classList.add("d-block");
+            // } else if (sceltaTipo = "user") {
+            //     cardDom.classList.add("d-block");
+            // }
         }
     )
 });
-
 
 provaDom.innerHTML += card;
 
