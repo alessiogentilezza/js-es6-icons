@@ -140,16 +140,10 @@ oggetti.forEach(element => {
     console.log(element)
 
     const imageCard = `<div class="card">
-    <p>${element.name}</p>
-    <p>${element.prefix}</p>
-    </div>`;
-
+    <i class="fa-solid ${element.prefix}${element.name}"></i>
+    <div>${element.name}</div>
+</div>`;
     card += imageCard;
-
-
-
-
-
 
 });
 
