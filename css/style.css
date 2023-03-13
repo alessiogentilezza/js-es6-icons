@@ -56,3 +56,10 @@ main {
     font-size: 30px;
     padding-bottom: 5px;
 }
+
+.d-none{
+    display: none;
+}
+.d-block{
+    display: block;
+}
