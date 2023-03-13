@@ -19,6 +19,8 @@ Come possiamo usare i dati presenti nella nostra struttura dati per creare l’e
 Inizialmente può essere sufficiente stampare dei semplici div, senza alcuno stile, con all’interno l’icona e uno span con il nome. Solamente quando la parte logica è completa, ci dedichiamo al css. */
 
 const provaDom = document.getElementById("cards-container");
+const cardDom = document.getElementsByClassName("card")
+
 /*
 const oggetti = [
     {
@@ -137,14 +139,14 @@ const oggetti = [
 */
 let card = "";
 oggetti.forEach(element => {
-    console.log(element)
+    // console.log(element)
 
     const imageCard = `<div class="card">
-    <i class="fa-solid ${element.prefix}${element.name}"></i>
-    <div>${element.name}</div>
-</div>`;
-    card += imageCard;
+                        <i class="fa-solid ${element.prefix}${element.name}"style="color:${element.color}"></i>
+                        <div>${element.name}</div>
+                        </div>`;
 
+    card += imageCard;
 });
 
 provaDom.innerHTML += card;
