@@ -138,9 +138,9 @@ const oggetti = [
     }
 ];
 */
-function stampoLemieCard() {
+stampoLemieCard();
 
-    let card = "";
+function stampoLemieCard() {
 
     oggetti.forEach(element => {
 
@@ -149,22 +149,18 @@ function stampoLemieCard() {
                             <div>${element.name}</div>
                             </div>`;
 
-        card += imageCard;
-
+        provaDom.innerHTML += imageCard;
     });
-
-    return card;
 }
 
 tipoSeleione.addEventListener("change",
     function () {
 
         let sceltaTipo = tipoSeleione.value;
+        provaDom.innerHTML = "";
 
         if (sceltaTipo == "all") {
             stampoLemieCard()
-            provaDom.innerHTML += card;
-
         }
 
     }
