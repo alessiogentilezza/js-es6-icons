@@ -22,7 +22,7 @@ Inizialmente può essere sufficiente stampare dei semplici div, senza alcuno sti
 const provaDom = document.getElementById("cards-container");
 const tipoSeleione = document.getElementById('casellaSelezione');
 
-stampoLemieCard();
+stampoLemieCard("all");
 
 function stampoLemieCard(tipo) {
 
