@@ -14,7 +14,7 @@ const tipoSeleione = document.getElementById('casellaSelezione');
 
 creaSelection();
 
-stampoLemieCard();
+stampoLemieCard("all");
 
 function creaSelection() {
     let newSelect = [];
@@ -23,9 +23,9 @@ function creaSelection() {
 
         let select = `<option value="${element.type}">${element.type}</option>`;
 
-        if (!newSelect.includes(select)) {
-            newSelect.push(select);
-            tipoSeleione.innerHTML += select;
+        if (!newSelect.includes(select)) {              //oppure element.type
+            newSelect.push(select);                     
+            tipoSeleione.innerHTML += select;           //riciclo newSelect e all'innerHTML do <option></option>
         }
     });
     return newSelect;
@@ -36,12 +36,16 @@ function stampoLemieCard(tipo) {
 
     oggetti.forEach(element => {
 
+        let numeriCasuali = generaNumeriCasualiUnici(3, 255, 0);
+        element.color = numeriCasuali.join(","); // unisce i numeri in una stringa separata da virgola
+
         let imageCard = `<div class="card">
-                            <i class="fa-solid ${element.prefix}${element.name}"style="color:rgb(${generaNumeriCasualiUnici(3, 255, 0)})"></i>
+                            <i class="fa-solid ${element.prefix}${element.name}"style="color:rgb(${element.color})"></i>
                             <div>${element.name}</div>
                             </div>`;
         if (element.type == tipo || tipo == "all")
-            provaDom.innerHTML += imageCard;
+
+        provaDom.innerHTML += imageCard;            // volendo potevo creare tutto qui dentro senza usare la variabile imageCard
     });
 }
 
